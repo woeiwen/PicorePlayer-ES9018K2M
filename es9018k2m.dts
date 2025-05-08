@@ -1,0 +1,57 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2835";
+
+    fragment@0 {
+        target = <&i2s>;
+        __overlay__ {
+            status = "okay";
+        };
+    };
+
+    fragment@1 {
+        target = <&i2c1>;
+        __overlay__ {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            status = "okay";
+
+            es9018k2m: codec@48 {
+                compatible = "ess,es9018k2m"; // Must match your codec driver
+                reg = <0x48>;
+                #sound-dai-cells = <0>;
+                
+                /* Default Control Values */
+                ess,fir-filter = "fast-roll-off"; // Fast Roll Off
+                ess,iir-filter = "47k-pcm";      // 47K (PCM)
+                ess,dpll-bandwidth = <5>;        // I2S DPLL '05'
+                ess,dsd-dpll-bandwidth = <10>;   // DSD DPLL '10'
+                ess,deemphasis = "off";          // Deemphasis Off
+                ess,digital-volume = <255>;      // Max volume (0-255)
+
+            };
+        };
+    };
+
+    fragment@2 {
+        target-path = "/";
+        __overlay__ {
+            sound {
+                compatible = "simple-audio-card";
+                simple-audio-card,name = "es9018k2m";
+                simple-audio-card,format = "i2s";
+                status = "okay";
+
+                simple-audio-card,cpu {
+                    sound-dai = <&i2s>;
+                };
+
+                simple-audio-card,codec {
+                    sound-dai = <&es9018k2m>;
+                };
+            };
+        };
+    };
+};
