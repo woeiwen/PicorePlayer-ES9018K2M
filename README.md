@@ -7,5 +7,8 @@ This is alsa driver for ES9018K2M  which implements the h/w volume control contr
 ![C7F0B9E7-EE51-43A3-81BA-F7976BB6BD55](https://github.com/user-attachments/assets/ceeafd8f-c70a-4004-b186-8978abcac559)
 
 
-There is a cgi script (es9018k2m.cgi) and config file (es9018k2m.conf) so that the controls can be done in PCP webui. Copy these files to tce dir, and update the bootlocal.sh to do a symbolic link to them in the approriate directories. The driver (ES9018K2M.c)is just a codec driver,  the machine driver is that of simple audio card which takes in a regular  I2S audio card. This can be seen in the .dts file to generate device tree overlay.
 
+
+There is a cgi script (es9018k2m.cgi) and config file (es9018k2m.conf) so that the controls can be done in PCP webui. Copy these files to tce dir, and update the bootlocal.sh to do a symbolic link to them in the approriate directories. There is also a modified alsa_mixer.cgi to handle the mixer controls for the filters. The driver (ES9018K2M.c)is just a codec driver,  the machine driver is that of simple audio card which takes in a regular  I2S audio card. This can be seen in the .dts file to generate device tree overlay. The config.txt need to load the ES9018K2M overlay. ES9018K2M would appear as one of the available audio cards.
+
+![533FA887-7B5C-42D8-A660-A69C2D926540](https://github.com/user-attachments/assets/62aa0bb4-734a-468e-b0eb-a89734521b73)
