@@ -1,7 +1,7 @@
 # PicorePlayer-ES9018K2M
 Alsa driver for ES9018K2M dac in Picoreplayer
 
-This is alsa driver for ES9018K2M  which implements the h/w volume control control of iir/fir filters  etc. They can be controlled using tools such as alsamixer and amixer. The original code is from: https://github.com/VinnyLorrin/Rpi-ES9018K2M-DAC.git . The driver module is compiled using the PIcoreplaye (PCP) kernel module tool: https://github.com/piCorePlayer/pCP-Kernels.git Follow the instructions to generate the module and create the extension.  This has been tested on pcp10, kernel 6.6.67. The dtc (device tree compiler) and i2c-tools (useful for checking i2c devices) extensions. i2c-dev module needs to be mamnually loaded using modprobe in bootlocal.sh.
+This is alsa driver for ES9018K2M  which implements the h/w volume control control of iir/fir filters  etc. They can be controlled using tools such as alsamixer and amixer. The original code is from: https://github.com/VinnyLorrin/Rpi-ES9018K2M-DAC.git . The driver module is compiled using the PIcoreplaye (PCP) kernel module tool: https://github.com/piCorePlayer/pCP-Kernels.git Follow the instructions to generate the module and create the extension.  This has been tested on pcp10, kernel 6.6.67. The dtc (device tree compiler) and i2c-tools (useful for checking i2c devices) extensions. i2c-dev module needs to be manually loaded using modprobe in bootlocal.sh.
 
 
 ![C7F0B9E7-EE51-43A3-81BA-F7976BB6BD55](https://github.com/user-attachments/assets/ceeafd8f-c70a-4004-b186-8978abcac559)
